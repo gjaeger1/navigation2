@@ -61,7 +61,7 @@ TEST(PointPortTest, test_wrong_syntax)
   auto tree = factory.createTreeFromText(xml_txt);
 
   geometry_msgs::msg::Point value;
-  tree.rootNode()->getInput("test", value);
+  tree.root_node->getInput("test", value);
   EXPECT_EQ(value.x, 0.0);
   EXPECT_EQ(value.y, 0.0);
   EXPECT_EQ(value.z, 0.0);
@@ -75,7 +75,7 @@ TEST(PointPortTest, test_wrong_syntax)
       </root>)";
 
   tree = factory.createTreeFromText(xml_txt);
-  tree.rootNode()->getInput("test", value);
+  tree.root_node->getInput("test", value);
   EXPECT_EQ(value.x, 0.0);
   EXPECT_EQ(value.y, 0.0);
   EXPECT_EQ(value.z, 0.0);
@@ -96,7 +96,7 @@ TEST(PointPortTest, test_correct_syntax)
   auto tree = factory.createTreeFromText(xml_txt);
 
   geometry_msgs::msg::Point value;
-  tree.rootNode()->getInput("test", value);
+  tree.root_node->getInput("test", value);
   EXPECT_EQ(value.x, 1.0);
   EXPECT_EQ(value.y, 2.0);
   EXPECT_EQ(value.z, 3.0);
@@ -117,7 +117,7 @@ TEST(QuaternionPortTest, test_wrong_syntax)
   auto tree = factory.createTreeFromText(xml_txt);
 
   geometry_msgs::msg::Quaternion value;
-  tree.rootNode()->getInput("test", value);
+  tree.root_node->getInput("test", value);
   EXPECT_EQ(value.x, 0.0);
   EXPECT_EQ(value.y, 0.0);
   EXPECT_EQ(value.z, 0.0);
@@ -132,7 +132,7 @@ TEST(QuaternionPortTest, test_wrong_syntax)
       </root>)";
 
   tree = factory.createTreeFromText(xml_txt);
-  tree.rootNode()->getInput("test", value);
+  tree.root_node->getInput("test", value);
   EXPECT_EQ(value.x, 0.0);
   EXPECT_EQ(value.y, 0.0);
   EXPECT_EQ(value.z, 0.0);
@@ -154,7 +154,7 @@ TEST(QuaternionPortTest, test_correct_syntax)
   auto tree = factory.createTreeFromText(xml_txt);
 
   geometry_msgs::msg::Quaternion value;
-  tree.rootNode()->getInput("test", value);
+  tree.root_node->getInput("test", value);
   EXPECT_EQ(value.x, 0.7);
   EXPECT_EQ(value.y, 0.0);
   EXPECT_EQ(value.z, 0.0);
@@ -176,7 +176,7 @@ TEST(MillisecondsPortTest, test_correct_syntax)
   auto tree = factory.createTreeFromText(xml_txt);
 
   std::chrono::milliseconds value;
-  tree.rootNode()->getInput("test", value);
+  tree.root_node->getInput("test", value);
   EXPECT_EQ(value.count(), 10000);
 
   xml_txt =
@@ -188,6 +188,6 @@ TEST(MillisecondsPortTest, test_correct_syntax)
       </root>)";
 
   tree = factory.createTreeFromText(xml_txt);
-  tree.rootNode()->getInput("test", value);
+  tree.root_node->getInput("test", value);
   EXPECT_EQ(value.count(), 123);
 }

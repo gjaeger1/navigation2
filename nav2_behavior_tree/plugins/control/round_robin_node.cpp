@@ -49,7 +49,7 @@ BT::NodeStatus RoundRobinNode::tick()
             current_child_idx_ = 0;
           }
           num_failed_children_ = 0;
-          ControlNode::haltChildren();
+          ControlNode::haltChildren(0);
           return BT::NodeStatus::SUCCESS;
         }
 

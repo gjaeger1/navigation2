@@ -97,10 +97,10 @@ std::shared_ptr<BT::Tree> TransformAvailableConditionTestFixture::tree_ = nullpt
 
 TEST_F(TransformAvailableConditionTestFixture, test_behavior)
 {
-  EXPECT_EQ(tree_->tickRoot(), BT::NodeStatus::FAILURE);
+  EXPECT_EQ(tree_->root_node->executeTick(), BT::NodeStatus::FAILURE);
   transform_handler_->activate();
   transform_handler_->waitForTransform();
-  EXPECT_EQ(tree_->tickRoot(), BT::NodeStatus::SUCCESS);
+  EXPECT_EQ(tree_->root_node->executeTick(), BT::NodeStatus::SUCCESS);
 }
 
 int main(int argc, char ** argv)

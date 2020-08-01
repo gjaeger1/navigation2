@@ -59,7 +59,7 @@ BT::NodeStatus RecoveryNode::tick()
               current_child_idx_++;
               break;
             } else {
-              ControlNode::haltChildren();
+              ControlNode::haltChildren(0);
               return BT::NodeStatus::FAILURE;
             }
           }
@@ -82,7 +82,7 @@ BT::NodeStatus RecoveryNode::tick()
           {
             retry_count_++;
             current_child_idx_--;
-            ControlNode::haltChildren();
+            ControlNode::haltChildren(0);
           }
           break;
 
